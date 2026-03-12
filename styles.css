@@ -68,7 +68,7 @@ body::before {
     pointer-events: none;
     z-index: 0;
     transform: translate(-50%, -50%);
-    transition: opacity 0.5s;
+    transition: opacity 0.1s;
 }
 
 /* Gradient Text */
@@ -840,3 +840,4 @@ body::before {
     .terminal-body { font-size: 11px; padding: 14px; }
     .cta-box { padding: 48px 24px; }
 }
+

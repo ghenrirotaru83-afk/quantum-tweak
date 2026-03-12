@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Tweak Shop</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1451330431592042588/1466936476284616829/LOGO3.gif?ex=69b3f34e&is=69b2a1ce&hm=4fb725a10414f22ca8ff8665a54f130b1724721047749c5f3c9618ab0d536579">
+</head>
+<body class="bg-elite">
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a class='nav-logo' href='/'>
+                <img src="https://cdn.discordapp.com/attachments/1451330431592042588/1466936476284616829/LOGO3.gif?ex=69b3f34e&is=69b2a1ce&hm=4fb725a10414f22ca8ff8665a54f130b1724721047749c5f3c9618ab0d536579" style="border-radius: 50px;">
+                <span class="logo-text">Qantum Tweaks</span>
+            </a>
+            <div class="nav-links">
+                <a href='/'>Home</a>
+                <a class='active' href='/shop'>Shop</a>
+                <a href='/download'>Download</a>
+                <a href="https://discord.gg/eWpQYpm7" target="_blank">Discord</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href='/'>Home</a>
+        <a href='/shop'>Shop</a>
+        <a href='/download'>Download</a>
+        <a href="https://discord.gg/ACcQASkzxK" target="_blank">Discord</a>
+    </div>
+
+    <main class="shop-content animate-in">
+        <div class="section-header">
+            <span class="section-tag">Marketplace</span>
+            <h1 style="font-family:var(--display);font-size:clamp(2.8rem,6vw,4.5rem);font-weight:400;letter-spacing:0.06em;color:#fff;margin-bottom:16px;">Quantum <span class="gradient-text">Tweak</span></h1>
+        </div>
+
+        <!-- Single product card -->
+        <div style="max-width:480px;margin:0 auto;">
+            <div class="price-card" style="text-align:center;">
+                <div class="price-badge">★ Quantum Tweak</div>
+                <div style="margin-bottom:28px;">
+                    <!-- Logo showcase -->
+                    <img src="https://cdn.discordapp.com/attachments/1451330431592042588/1466936476284616829/LOGO3.gif?ex=69b3f34e&is=69b2a1ce&hm=4fb725a10414f22ca8ff8665a54f130b1724721047749c5f3c9618ab0d536579" alt="SMHub" style="height:80px;margin:20px auto 0;display:block;mix-blend-mode:screen;filter:brightness(1.4) saturate(0.8);border-radius: 50px;">
+                </div>
+                <div class="price-header">
+                    <h3>Lifetime Premium</h3>
+                </div>
+                <div class="price-amount" style="justify-content:center;">
+                    <span class="currency">$</span>
+                    <span class="amount">25</span>
+                    <span class="period">one-time</span>
+                </div>
+                <ul class="price-features" style="text-align:left;margin-bottom:28px;">
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#84c4fc" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> All Features Included</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#84c4fc" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Lifetime — No Expiry</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#84c4fc" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 24/7 Priority Discord Support</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#84c4fc" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Instant Key Delivery</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#84c4fc" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> All Future Updates</li>
+                </ul>
+
+                <!-- Payment badges -->
+                <div class="payment-badges" style="justify-content:center;margin-bottom:24px;">
+                    <span class="pay-badge">Card</span>
+                    <span class="pay-badge" style="color:#3a8df7;border-color:rgba(58,141,247,0.3);">Paypal</span>
+                    <span class="pay-badge" style="color:#f7931a;border-color:rgba(247,147,26,0.3);">Crypto</span>
+                </div>
+
+                <button class="btn btn-primary full-width btn-lg" onclick="buy('premium')">
+                    Get Lifetime Access — $35
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="shop.js"></script>
+    <script>
+        function buy(tier) {
+            window.location.href = `product-fivem.html?tier=${tier}`;
+        }
+    </script>
+</body>
+</html>

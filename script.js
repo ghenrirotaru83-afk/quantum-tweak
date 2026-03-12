@@ -162,38 +162,38 @@ document.querySelectorAll('.features-grid .feature-card, .pricing-grid .price-ca
 });
 
 // ═══ DYNAMIC STATUS & ACTIVE USERS FROM SERVER ═══
-(async function loadDynamicSettings() {
-    try {
-        const resp = await fetch('/.netlify/functions/admin-settings');
-        if (!resp.ok) return;
-        const data = await resp.json();
-
-        // Update badge with current month/year
-        const badge = document.getElementById('heroBadge');
-        const dot = document.getElementById('badgeDot');
-        const text = document.getElementById('badgeText');
-        if (badge && dot && text) {
-            const now = new Date();
-            const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            const dateStr = monthNames[now.getMonth()] + ' ' + now.getFullYear();
-            text.textContent = 'Updated ' + dateStr;
-            // keep dot accent color
-            dot.style.background = '#84c4fc';
-            dot.style.boxShadow = '0 0 8px #84c4fc';
-        }
-        // Active users count
-        if (data.activeUsers) {
-            const el = document.getElementById('activeUsersValue');
-            if (el) el.setAttribute('data-count', data.activeUsers);
-        }
-
-        // Keep all Discord links synced with admin settings.
-        if (data.discord) {
-            document.querySelectorAll('a[href*="discord.gg"]').forEach(link => {
-                link.href = data.discord;
-            });
-        }
-    } catch (e) {
-        console.warn('Failed to load settings:', e);
-    }
-})();
+//(async function loadDynamicSettings() {
+//    try {
+//        const resp = await fetch('/.netlify/functions/admin-settings');
+//        if (!resp.ok) return;
+//        const data = await resp.json();
+//
+//        // Update badge with current month/year
+//        const badge = document.getElementById('heroBadge');
+//        const dot = document.getElementById('badgeDot');
+//        const text = document.getElementById('badgeText');
+//        if (badge && dot && text) {
+//            const now = new Date();
+//            const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+//            const dateStr = monthNames[now.getMonth()] + ' ' + now.getFullYear();
+//            text.textContent = 'Updated ' + dateStr;
+//            // keep dot accent color
+//            dot.style.background = '#84c4fc';
+//            dot.style.boxShadow = '0 0 8px #84c4fc';
+//        }
+//        // Active users count
+//        if (data.activeUsers) {
+//            const el = document.getElementById('activeUsersValue');
+//            if (el) el.setAttribute('data-count', data.activeUsers);
+//        }
+//
+//        // Keep all Discord links synced with admin settings.
+//        if (data.discord) {
+//            document.querySelectorAll('a[href*="discord.gg"]').forEach(link => {
+//                link.href = data.discord;
+//            });
+//        }
+//    } catch (e) {
+//        console.warn('Failed to load settings:', e);
+//    }
+//})();

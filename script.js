@@ -49,8 +49,8 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function animateGlow() {
-    glowX += (mouseX - glowX) * 0.08;
-    glowY += (mouseY - glowY) * 0.08;
+    glowX += (mouseX - glowX) * 1.5;
+    glowY += (mouseY - glowY) * 1.5;
     cursorGlow.style.left = glowX + 'px';
     cursorGlow.style.top = glowY + 'px';
     requestAnimationFrame(animateGlow);
@@ -197,3 +197,4 @@ document.querySelectorAll('.features-grid .feature-card, .pricing-grid .price-ca
 //        console.warn('Failed to load settings:', e);
 //    }
 //})();
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMHub — Secure Downloads</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1451330431592042588/1466936476284616829/LOGO3.gif?ex=69b3f34e&is=69b2a1ce&hm=4fb725a10414f22ca8ff8665a54f130b1724721047749c5f3c9618ab0d536579">
+</head>
+<body class="bg-elite">
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a class='nav-logo' href='index.html'>
+                <img src="https://cdn.discordapp.com/attachments/1451330431592042588/1466936476284616829/LOGO3.gif?ex=69b3f34e&is=69b2a1ce&hm=4fb725a10414f22ca8ff8665a54f130b1724721047749c5f3c9618ab0d536579" alt="SMHub" style="height:30px;border-radius: 50px;">
+                <span class="logo-text">Quantum Tweaks</span>
+            </a>
+            <div class="nav-links">
+                <a href='index.html'>Home</a>
+                <a href='shop.html'>Shop</a>
+                <a class='active' href='dow.html'>Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="section-container" style="padding-top:120px; max-width:600px;">
+        <div class="glass-card animate-in" style="padding:48px; text-align:center;">
+            <span class="section-tag" style="margin-bottom:24px;">Secure Download</span>
+            <h1 style="font-family:var(--display);font-size:3rem;font-weight:400;letter-spacing:0.08em;color:#fff;margin-bottom:8px;">Quantum Tweak</h1>
+            <p style="color:var(--text-dim);margin-bottom:40px;font-size:0.95rem;">Always stay up to date with the best tweaks.</p>
+
+            <div style="margin:40px 0;">
+                <div id="versionTag" class="section-tag" style="margin-bottom:24px;display:inline-flex;">v1.0.0</div>
+                <br>
+                <button id="dlBtn" class="btn btn-primary btn-lg" style="font-size:15px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download Quantum_Tweak.py
+                </button>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.02);border-radius:var(--radius);padding:20px;border:1px solid var(--border-silver);">
+                <div style="display:flex;justify-content:space-around;font-size:13px;font-family:var(--mono);letter-spacing:0.08em;">
+                    <div style="color:var(--text-muted);">Status: <span style="color:#44bb44;">Updatet</span></div>
+                    <div style="color:var(--text-muted);">Last Update: <span id="lastUpdate" style="color:var(--silver-light);">Today</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchInfo() {
+            try {
+                const resp = await fetch('/.netlify/functions/admin-settings');
+                const data = await resp.json();
+                if (data.version) document.getElementById('versionTag').innerText = 'v' + data.version;
+                if (data.downloadUrl) document.getElementById('dlBtn').onclick = () => window.location.href = data.downloadUrl;
+            } catch (e) { }
+        }
+        fetchInfo();
+    </script>
+</body>
+</html>
